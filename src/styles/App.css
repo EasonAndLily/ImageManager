@@ -29,3 +29,29 @@ controller-nav {
   width: 100%;
   text-align: center;
 }
+
+
+.img-figure {
+  position: absolute;
+  width: 240px;
+  height: 310px;
+  margin: 0px;
+  padding: 20px 20px 40px 20px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.img-figure img {
+  width: 200px;
+  height: 250px;
+}
+
+figcaption {
+  text-align: center;
+}
+
+.img-title {
+    margin: 5px 0 10px 0;
+    color: #a7a0a2;
+    font-size: 16px;
+}

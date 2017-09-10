@@ -18,10 +18,14 @@ class AppComponent extends React.Component {
 					pos: {
 						left: '0',
 						top: '0'
-					}
+					},
+					rotate: 0, //存放图片的旋转角度
+					isInverse: false, //存放图片的正反面
+					isCenter: false //图片是否居中
 				}
 			]
-		}
+		};
+		this.setImagesRangeArr = this.setImagesRangeArr.bind(this);
 	}
 
 	Constants = Utils.Constants;
@@ -66,7 +70,11 @@ class AppComponent extends React.Component {
 			imagesRangeArr: Utils.rearRange(this.state.imagesRangeArr, 0)
 		});
 	}
-
+	setImagesRangeArr() {
+		this.setState({
+	            imagesRangeArr: this.state.imagesRangeArr
+	        });
+	}
 	render() {
 		//let controllerUnits = [];
 		let imgFigures = [];
@@ -76,11 +84,17 @@ class AppComponent extends React.Component {
 					pos: {
 						left: 0,
 						top: 0
-					}
+					},
+					rotate: 0,
+					isInverse: false,
+					isCenter: false
 				}
 			}
 
-			imgFigures.push(<ImageFigure data={val} ref={'imageFigure' + index} arRange={this.state.imagesRangeArr[index]}/>);
+			imgFigures.push(<ImageFigure data={val} key={val.name} ref={'imageFigure' + index}
+				arRange={this.state.imagesRangeArr[index]}
+				inverse={Utils.inverse(this.state.imagesRangeArr[index], this, this.setImagesRangeArr)}
+				center={Utils.center(this, this.state.imagesRangeArr, index)}/>);
 		}.bind(this));
 
 

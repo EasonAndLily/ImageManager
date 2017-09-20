@@ -1,10 +1,12 @@
 require('normalize.css/normalize.css');
 require('styles/App.css');
+require('styles/iconfont.css');
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Utils from '../config/utils.js';
 import ImageFigure from '../config/ImageFigure.js';
+import ControllerUnit from '../config/ControllerUnit.js'
 
 let imageDatas = require('json-loader!../data/images.json');
 
@@ -76,7 +78,7 @@ class AppComponent extends React.Component {
 	        });
 	}
 	render() {
-		//let controllerUnits = [];
+		let controllerUnits = [];
 		let imgFigures = [];
 		imageDatas.forEach(function(val, index) {
 			if (!this.state.imagesRangeArr[index]) {
@@ -95,6 +97,8 @@ class AppComponent extends React.Component {
 				arRange={this.state.imagesRangeArr[index]}
 				inverse={Utils.inverse(this.state.imagesRangeArr[index], this, this.setImagesRangeArr)}
 				center={Utils.center(this, this.state.imagesRangeArr, index)}/>);
+
+			controllerUnits.push(<ControllerUnit/>)
 		}.bind(this));
 
 
@@ -103,7 +107,9 @@ class AppComponent extends React.Component {
 			<section className="img-sec">
 				{imgFigures}
 			</section>
-			<nav className="controller-nav"></nav>
+			<nav className="controller-nav">
+				{controllerUnits}
+			</nav>
 		  </section>
 		);
 	}

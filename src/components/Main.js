@@ -98,7 +98,9 @@ class AppComponent extends React.Component {
 				inverse={Utils.inverse(this.state.imagesRangeArr[index], this, this.setImagesRangeArr)}
 				center={Utils.center(this, this.state.imagesRangeArr, index)}/>);
 
-			controllerUnits.push(<ControllerUnit/>)
+			controllerUnits.push(<ControllerUnit key={index} arRange={this.state.imagesRangeArr[index]}
+				inverse={Utils.inverse(this.state.imagesRangeArr[index], this, this.setImagesRangeArr)}
+				center={Utils.center(this, this.state.imagesRangeArr, index)}/>)
 		}.bind(this));
 
 

@@ -26,7 +26,7 @@ class ImageFigure extends React.Component {
     styleObject['transform'] = this.props.arRange.rotate ? 'rotate(' + this.props.arRange.rotate + 'deg)' : 'rotate(0deg)';
     styleObject['zIndex'] = this.props.arRange.isCenter ? '101' : '';
     let imgFigureClassName = 'img-figure';
-    imgFigureClassName += this.props.arRange.isInverse ? ' is-inverse' : '';
+    imgFigureClassName += this.props.arRange.isInverse ? ' is-inverse-image' : '';
     return (
       <figure className={imgFigureClassName} style={styleObject} onClick={this.handleClick}>
         <img src={this.props.data.singleImageData} alt={this.props.data.title}/>

@@ -13,15 +13,27 @@ class ControllerUnit extends React.Component {
     }
 
     handleClick(e) {
+        if(this.props.arRange.isCenter) {
+            this.props.inverse();
+        } else {
+            this.props.center();
+        }
         e.stopPropagation();
         e.preventDefault();
     }
 
     render() {
+        var controllerUnitClassName = 'controller-unit';
+        if (this.props.arRange.isCenter) {
+            controllerUnitClassName += ' is-center';
+            if (this.props.arRange.isInverse) {
+                controllerUnitClassName += ' is-inverse';
+            }
+        }
         return (
-            <span className="controller-unit" onClick={this.handleClick}>
+            <span className={controllerUnitClassName} onClick={this.handleClick}>
             </span>
-            );
+        );
     }
 }
 

@@ -59,10 +59,11 @@ img-sec{
   -webet-font-smoothing: antialiased;
 }
 
-.controller-nav .is-center .is-inverse {
+.controller-nav .is-center .is-inverse{
   background-color: #555;
   transform: rotateY(180deg);
 }
+
 .img-figure {
   position: absolute;
   width: 240px;
@@ -83,6 +84,11 @@ img-sec{
 }
 
 .is-inverse {
+  transform: translate(200px) rotateY(180deg) !important;
+  -webkit-transform: translate(0px) rotateY(180deg) !important;
+}
+
+.is-inverse-image {
   transform: translate(200px) rotateY(180deg) !important;
   -webkit-transform: translate(260px) rotateY(180deg) !important;
 }
